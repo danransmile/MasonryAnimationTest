@@ -162,51 +162,52 @@
     
 }
 
--(void)dismissView{
-    MASViewAttribute *attribute;
-    for (UIView *view in self.subviews) {
-        if (view.tag < self.dataArray.count + 100 && [view isKindOfClass:[ZRAQuestionSubView class]]) {
-            ZRAQuestionSubView *subView = (ZRAQuestionSubView *)view;
-            
-            [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
-                subView.alpha = 0;
-                [subView mas_remakeConstraints:^(MASConstraintMaker *make) {
-                    make.height.equalTo(@40);
-                    make.bottom.equalTo(self.whiteView.mas_top).offset(-6);
-                    make.trailing.equalTo(@0);
-                }];
-            } completion:nil];
-            
-            attribute = subView.mas_bottom;
-        }
-    }
-    [self layoutIfNeeded];
-}
-
-
 -(void)showView{
     MASViewAttribute *attribute;
     for (UIView *view in self.subviews) {
         if (view.tag < self.dataArray.count + 100 && [view isKindOfClass:[ZRAQuestionSubView class]]) {
             ZRAQuestionSubView *subView = (ZRAQuestionSubView *)view;
             
-            [UIView animateWithDuration:0.3 delay:0.3 options:UIViewAnimationOptionCurveEaseOut animations:^{
+            [UIView animateWithDuration:1 delay:0.3 options:UIViewAnimationOptionCurveEaseOut animations:^{
                 subView.alpha = 1;
                 [subView mas_remakeConstraints:^(MASConstraintMaker *make) {
                     make.height.equalTo(@40);
                     make.trailing.equalTo(@0);
                     if (attribute) {
-                        make.top.equalTo(attribute).offset(6);
+                        make.bottom.equalTo(attribute).offset(-6);
                     }else{
-                        make.top.equalTo(@0);
+                        make.bottom.equalTo(self.whiteView.mas_top).offset(-6);
                     }
                 }];
+                [self layoutIfNeeded];
+                
+            } completion:nil];
+            
+            attribute = subView.mas_top;
+            
+        }
+    }
+}
+
+-(void)dismissView{
+    MASViewAttribute *attribute;
+    for (UIView *view in self.subviews) {
+        if (view.tag < self.dataArray.count + 100 && [view isKindOfClass:[ZRAQuestionSubView class]]) {
+            ZRAQuestionSubView *subView = (ZRAQuestionSubView *)view;
+            
+            [UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+                subView.alpha = 0;
+                [subView mas_remakeConstraints:^(MASConstraintMaker *make) {
+                    make.height.equalTo(@40);
+                    make.bottom.equalTo(self.whiteView.mas_top).offset(-6);
+                    make.trailing.equalTo(@0);
+                }];
+                [self layoutIfNeeded];
             } completion:nil];
             
             attribute = subView.mas_bottom;
         }
     }
-    [self layoutIfNeeded];
 }
 
 @end
