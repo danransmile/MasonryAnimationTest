@@ -13,6 +13,9 @@
 		0579F2FA23EA897900DBB158 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0579F2F923EA897900DBB158 /* Assets.xcassets */; };
 		0579F2FD23EA897900DBB158 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0579F2FB23EA897900DBB158 /* LaunchScreen.storyboard */; };
 		0579F30023EA897900DBB158 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0579F2FF23EA897900DBB158 /* main.m */; };
+		0579F30823EA922800DBB158 /* ZRAQuestionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0579F30723EA922800DBB158 /* ZRAQuestionView.m */; };
+		0579F30B23EA945600DBB158 /* BViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0579F30A23EA945600DBB158 /* BViewController.m */; };
+		5FE9D85E9479D28DCC3E2FA3 /* libPods-MasonryAnimationTest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F0126B8342A9613CEC57F77 /* libPods-MasonryAnimationTest.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +29,13 @@
 		0579F2FC23EA897900DBB158 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0579F2FE23EA897900DBB158 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0579F2FF23EA897900DBB158 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		0579F30623EA922800DBB158 /* ZRAQuestionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZRAQuestionView.h; sourceTree = "<group>"; };
+		0579F30723EA922800DBB158 /* ZRAQuestionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZRAQuestionView.m; sourceTree = "<group>"; };
+		0579F30923EA945600DBB158 /* BViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BViewController.h; sourceTree = "<group>"; };
+		0579F30A23EA945600DBB158 /* BViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BViewController.m; sourceTree = "<group>"; };
+		7BD6F863FE4F882B13A50D54 /* Pods-MasonryAnimationTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MasonryAnimationTest.release.xcconfig"; path = "Target Support Files/Pods-MasonryAnimationTest/Pods-MasonryAnimationTest.release.xcconfig"; sourceTree = "<group>"; };
+		8F0126B8342A9613CEC57F77 /* libPods-MasonryAnimationTest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MasonryAnimationTest.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D6B9E2EBBB3299731331D996 /* Pods-MasonryAnimationTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MasonryAnimationTest.debug.xcconfig"; path = "Target Support Files/Pods-MasonryAnimationTest/Pods-MasonryAnimationTest.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5FE9D85E9479D28DCC3E2FA3 /* libPods-MasonryAnimationTest.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +55,8 @@
 			children = (
 				0579F2EF23EA897800DBB158 /* MasonryAnimationTest */,
 				0579F2EE23EA897800DBB158 /* Products */,
+				2559942E9746FFE4D65F76B7 /* Pods */,
+				F0CF1DDD4140A8047C02A64B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,6 +71,8 @@
 		0579F2EF23EA897800DBB158 /* MasonryAnimationTest */ = {
 			isa = PBXGroup;
 			children = (
+				0579F30623EA922800DBB158 /* ZRAQuestionView.h */,
+				0579F30723EA922800DBB158 /* ZRAQuestionView.m */,
 				0579F2F023EA897800DBB158 /* AppDelegate.h */,
 				0579F2F123EA897800DBB158 /* AppDelegate.m */,
 				0579F2F323EA897800DBB158 /* ViewController.h */,
@@ -67,8 +82,27 @@
 				0579F2FB23EA897900DBB158 /* LaunchScreen.storyboard */,
 				0579F2FE23EA897900DBB158 /* Info.plist */,
 				0579F2FF23EA897900DBB158 /* main.m */,
+				0579F30923EA945600DBB158 /* BViewController.h */,
+				0579F30A23EA945600DBB158 /* BViewController.m */,
 			);
 			path = MasonryAnimationTest;
+			sourceTree = "<group>";
+		};
+		2559942E9746FFE4D65F76B7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D6B9E2EBBB3299731331D996 /* Pods-MasonryAnimationTest.debug.xcconfig */,
+				7BD6F863FE4F882B13A50D54 /* Pods-MasonryAnimationTest.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		F0CF1DDD4140A8047C02A64B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8F0126B8342A9613CEC57F77 /* libPods-MasonryAnimationTest.a */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -78,6 +112,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0579F30323EA897900DBB158 /* Build configuration list for PBXNativeTarget "MasonryAnimationTest" */;
 			buildPhases = (
+				3738A9F02182E12BECE99C07 /* [CP] Check Pods Manifest.lock */,
 				0579F2E923EA897800DBB158 /* Sources */,
 				0579F2EA23EA897800DBB158 /* Frameworks */,
 				0579F2EB23EA897800DBB158 /* Resources */,
@@ -136,13 +171,40 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3738A9F02182E12BECE99C07 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MasonryAnimationTest-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		0579F2E923EA897800DBB158 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0579F30823EA922800DBB158 /* ZRAQuestionView.m in Sources */,
 				0579F2F523EA897800DBB158 /* ViewController.m in Sources */,
 				0579F30023EA897900DBB158 /* main.m in Sources */,
+				0579F30B23EA945600DBB158 /* BViewController.m in Sources */,
 				0579F2F223EA897800DBB158 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -283,10 +345,12 @@
 		};
 		0579F30423EA897900DBB158 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D6B9E2EBBB3299731331D996 /* Pods-MasonryAnimationTest.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = MasonryAnimationTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -299,10 +363,12 @@
 		};
 		0579F30523EA897900DBB158 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7BD6F863FE4F882B13A50D54 /* Pods-MasonryAnimationTest.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = MasonryAnimationTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

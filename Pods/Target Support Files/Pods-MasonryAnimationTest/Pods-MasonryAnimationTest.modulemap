@@ -1,0 +1,6 @@
+module Pods_MasonryAnimationTest {
+  umbrella header "Pods-MasonryAnimationTest-umbrella.h"
+
+  export *
+  module * { export * }
+}
