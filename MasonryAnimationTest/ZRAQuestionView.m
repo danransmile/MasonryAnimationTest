@@ -68,10 +68,12 @@
 @end
 
 
-@interface ZRAQuestionView ()
+@interface ZRAQuestionView (){
+    BOOL _isShow;
+}
 
 @property (nonatomic, strong) NSArray *dataArray;
-
+@property (nonatomic, strong) UIView *whiteView;
 @end
 
 @implementation ZRAQuestionView
@@ -88,28 +90,28 @@
 
 -(void)configUI{
     
-    UIView *whiteView = [[UIView alloc]init];
-    [self addSubview:whiteView];
-    [whiteView mas_makeConstraints:^(MASConstraintMaker *make) {
+    self.whiteView = [[UIView alloc]init];
+    [self addSubview:self.whiteView];
+    [self.whiteView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.trailing.equalTo(@0);
         make.bottom.equalTo(@0);
         make.width.equalTo(@78);
         make.height.equalTo(@40);
     }];
     
-    whiteView.layer.borderWidth = 0.5;
-    whiteView.layer.borderColor = [UIColor colorWithRed:0/255.0 green:0/255.0 blue:0/255.0 alpha:0.12].CGColor;
+    self.whiteView.layer.borderWidth = 0.5;
+    self.whiteView.layer.borderColor = [UIColor colorWithRed:0/255.0 green:0/255.0 blue:0/255.0 alpha:0.12].CGColor;
     
-    whiteView.layer.backgroundColor = [UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:1.0].CGColor;
-    whiteView.layer.cornerRadius = 20.5;
-    whiteView.layer.shadowColor = [UIColor colorWithRed:0/255.0 green:0/255.0 blue:0/255.0 alpha:0.08].CGColor;
-    whiteView.layer.shadowOffset = CGSizeMake(0,2);
-    whiteView.layer.shadowOpacity = 1;
-    whiteView.layer.shadowRadius = 10;
+    self.whiteView.layer.backgroundColor = [UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:1.0].CGColor;
+    self.whiteView.layer.cornerRadius = 20.5;
+    self.whiteView.layer.shadowColor = [UIColor colorWithRed:0/255.0 green:0/255.0 blue:0/255.0 alpha:0.08].CGColor;
+    self.whiteView.layer.shadowOffset = CGSizeMake(0,2);
+    self.whiteView.layer.shadowOpacity = 1;
+    self.whiteView.layer.shadowRadius = 10;
     UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(questionMethod)];
-    [whiteView addGestureRecognizer:gesture];
+    [self.whiteView addGestureRecognizer:gesture];
     UIImageView *arrowImageView = [[UIImageView alloc]init];
-    [whiteView addSubview:arrowImageView];
+    [self.whiteView addSubview:arrowImageView];
     [arrowImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(@0);
         make.leading.equalTo(@16);
@@ -118,7 +120,7 @@
     arrowImageView.image = [UIImage imageNamed:@"icon_unfoldup_12_c4"];
     
     UILabel *titleLabel = [[UILabel alloc]init];
-    [whiteView addSubview:titleLabel];
+    [self.whiteView addSubview:titleLabel];
     [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(@0);
         make.leading.equalTo(arrowImageView.mas_trailing).offset(4);
@@ -129,13 +131,13 @@
     
     for (int i = 0; i< self.dataArray.count; i++) {
         
-        ZRAQuestionSubView *questionView = [[ZRAQuestionSubView alloc]initWithQuestionText:@"111"];
+        ZRAQuestionSubView *questionView = [[ZRAQuestionSubView alloc]initWithQuestionText:self.dataArray[i]];
         [self addSubview:questionView];
         questionView.tag = 100 + i;
         questionView.alpha = 0;
         [questionView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.height.equalTo(@40);
-            make.bottom.equalTo(whiteView.mas_top).offset(-6);
+            make.bottom.equalTo(self.whiteView.mas_top).offset(-6);
             make.trailing.equalTo(@0);
         }];
 //        @weakify(self);
@@ -150,7 +152,35 @@
 }
 
 -(void)questionMethod{
-    [self showView];
+    if (_isShow == YES) {
+        [self dismissView];
+        _isShow = NO;
+    }else{
+        [self showView];
+        _isShow = YES;
+    }
+    
+}
+
+-(void)dismissView{
+    MASViewAttribute *attribute;
+    for (UIView *view in self.subviews) {
+        if (view.tag < self.dataArray.count + 100 && [view isKindOfClass:[ZRAQuestionSubView class]]) {
+            ZRAQuestionSubView *subView = (ZRAQuestionSubView *)view;
+            
+            [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+                subView.alpha = 0;
+                [subView mas_remakeConstraints:^(MASConstraintMaker *make) {
+                    make.height.equalTo(@40);
+                    make.bottom.equalTo(self.whiteView.mas_top).offset(-6);
+                    make.trailing.equalTo(@0);
+                }];
+            } completion:nil];
+            
+            attribute = subView.mas_bottom;
+        }
+    }
+    [self layoutIfNeeded];
 }
 
 

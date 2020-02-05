@@ -23,7 +23,7 @@
 }
 
 -(void)configQuestionView{
-    NSArray *array = @[@"1",@"2",@"3",@"4"];
+    NSArray *array = @[@"这个房型好吗???",@"有中介费吗",@"什么时候能看房???",@"最少租几个月"];
     self.questionView = [[ZRAQuestionView alloc]initWithDataArray:array];
     [self.view addSubview:self.questionView];
     [self.questionView mas_makeConstraints:^(MASConstraintMaker *make) {
