@@ -190,8 +190,8 @@
 }
 
 -(void)dismissView{
-    MASViewAttribute *attribute;
-    for (UIView *view in self.subviews) {
+    __block MASViewAttribute *attribute;
+    [self.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull view, NSUInteger idx, BOOL * _Nonnull stop) {
         if (view.tag < self.dataArray.count + 100 && [view isKindOfClass:[ZRAQuestionSubView class]]) {
             ZRAQuestionSubView *subView = (ZRAQuestionSubView *)view;
             
@@ -207,7 +207,7 @@
             
             attribute = subView.mas_bottom;
         }
-    }
+    }];
 }
 
 @end
